@@ -4,21 +4,26 @@ using UnityEngine;
 
 public class Wave : MonoBehaviour {
 
-    public GameObject Player2;
-    public GameObject WaveObject;
+    public float WaveSpeed;
 
-	void Start () {
-		
-	}
+    public Transform Player2;
+    public GameObject WaveObject;
 	
-	void Update () {
-		if(Input.GetKeyDown(KeyCode.Space))
+	void Update ()
+    {
+        LaunchWave();
+    }
+
+    void LaunchWave()
+    {
+        float step = WaveSpeed * Time.deltaTime;
+        if (Input.GetKeyDown(KeyCode.Space))
         {
-            Instantiate(WaveObject);
+            Instantiate(WaveObject, transform.position + (transform.right * 2), transform.rotation);
+            WaveObject.transform.position = Vector3.MoveTowards(transform.position, Player2.position, step);
             Debug.Log("Wave!");
         }
-	}
-
+    }
     //1. если игрок нажал на пробел
     // - заспавнить объект волна
     // - волна движется к координатам игрока 2
