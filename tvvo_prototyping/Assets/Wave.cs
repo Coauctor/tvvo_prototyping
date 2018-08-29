@@ -6,8 +6,11 @@ public class Wave : MonoBehaviour {
 
     public float WaveSpeed;
 
+    public Transform Player1;
     public Transform Player2;
     public GameObject WaveObject;
+
+    private bool waveExist = false;
 	
 	void Update ()
     {
@@ -16,12 +19,13 @@ public class Wave : MonoBehaviour {
 
     void LaunchWave()
     {
-        float step = WaveSpeed * Time.deltaTime;
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space) & waveExist = false)
         {
+            float speed = WaveSpeed * Time.deltaTime;
             Instantiate(WaveObject, transform.position + (transform.right * 2), transform.rotation);
-            WaveObject.transform.position = Vector3.MoveTowards(transform.position, Player2.position, step);
+            WaveObject.transform.position = Vector3.MoveTowards(Player1.position, Player2.position, speed);
             Debug.Log("Wave!");
+            bool waveExist = true;
         }
     }
     //1. если игрок нажал на пробел

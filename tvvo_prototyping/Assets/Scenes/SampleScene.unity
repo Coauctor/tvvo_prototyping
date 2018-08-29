@@ -453,6 +453,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   WaveSpeed: 50
+  Player1: {fileID: 1128167009}
   Player2: {fileID: 1768210452}
   WaveObject: {fileID: 1441669910397536, guid: b5f7ec704ae849944ada92a201df6243, type: 2}
 --- !u!1 &1768210447
